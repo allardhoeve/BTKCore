@@ -5,9 +5,9 @@ import os.path
 
 version = '@BTK_VERSION_STRING@'
 
-WRAPPER_SOURCES = '/Users/allardhoeve/devel/BTKCore/Wrapping/Python'
+WRAPPER_SOURCES = '@CMAKE_CURRENT_SOURCE_DIR@'
 
-def find_wrapping_sources():
+def find_wrapper_sources():
     return glob.glob(os.path.join(WRAPPER_SOURCES, '*.cpp'))
 
 _btk = Extension('_btk',
@@ -23,7 +23,7 @@ _btk = Extension('_btk',
                     '@BTK_SOURCE_DIR@/Utilities/eigen3',
                     '@BTK_SOURCE_DIR@/Utilities/SWIG'
                 ],
-                sources=find_wrapping_sources() + ['btkSwigPYTHON_wrap.cxx'],
+                sources=find_wrapper_sources() + ['btkSwigPYTHON_wrap.cxx'],
                 extra_objects=['libBTKBasicFilters.a', 'libBTKIO.a', 'libBTKCommon.a'])
 
 
