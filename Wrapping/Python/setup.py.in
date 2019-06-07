@@ -1,5 +1,7 @@
 # coding=utf-8
 from setuptools import setup, Extension
+import glob
+import os.path
 
 version = '@BTK_VERSION_STRING@'
 
